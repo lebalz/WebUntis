@@ -29,10 +29,10 @@ const parse = <DateType extends Date>(
     dateStr: string | number,
     formatStr: string,
     referenceDate: DateType | number | string,
-    options?: ParseOptions
+    options?: ParseOptions,
 ) => {
-      return fnsParse(`${dateStr}`, formatStr, referenceDate, options)
-}
+    return fnsParse(`${dateStr}`, formatStr, referenceDate, options);
+};
 
 export class Base {
     school: string;
