@@ -1,7 +1,7 @@
 import { serialize } from './cookie';
 import axios from 'axios';
 import { btoa } from './base-64';
-import { parse, startOfDay, format } from 'date-fns';
+import { parse as fnsParse, startOfDay, format, type ParseOptions } from 'date-fns';
 import type { AxiosInstance } from 'axios';
 import type {
     Absences,
@@ -24,6 +24,15 @@ import type {
 } from './types';
 import type { InternalSchoolYear, SessionInformation } from './internal';
 import { WebUntisElementType } from './types';
+
+const parse = <DateType extends Date>(
+    dateStr: string | number,
+    formatStr: string,
+    referenceDate: DateType | number | string,
+    options?: ParseOptions
+) => {
+      return fnsParse(`${dateStr}`, formatStr, referenceDate, options)
+}
 
 export class Base {
     school: string;
