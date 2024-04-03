@@ -25,6 +25,15 @@ import type {
 import type { InternalSchoolYear, SessionInformation } from './internal';
 import { WebUntisElementType } from './types';
 
+/**
+ * Ensures that the dateStr is a string when calling {@link fnsParse}.
+ * This is needed since some WebUntis servers return numbers instead of strings.
+ * @param dateStr {string | number}
+ * @param formatStr {string}
+ * @param referenceDate {DateType | number | string}
+ * @param options {ParseOptions | undefined}
+ * @returns 
+ */
 const parse = <DateType extends Date>(
     dateStr: string | number,
     formatStr: string,
